@@ -252,7 +252,7 @@ function drawBarChart(data, x, y, width, height) {
         const bar = document.createElementNS("http://www.w3.org/2000/svg", "rect");
         bar.id=item.label
         bar.addEventListener("mouseover", function(){
-            mouseover(item.label)
+            mouseOverBar(item.label)
         })
         bar.addEventListener("mouseout", function(){
             mouseout(item.label)
@@ -283,6 +283,17 @@ function mouseover(id){
         label.style.display="block";
         label.style.fontSize="90%";
         label.style.fontWeight="bolder";
+        // label.style.zIndex= 7
+        console.log(label.textContent)
+    }
+}
+function mouseOverBar(id){
+    let label = document.getElementById("label"+id)
+    if (label != null){
+        label.style.display="block";
+        label.style.fontSize="90%";
+        label.style.fontWeight="bolder";
+        label.setAttribute("x", 100);
     }
 }
 function mouseout(id){
@@ -290,6 +301,10 @@ function mouseout(id){
     if (label != null){
         label.style.display="none"
     }
+}
+function Logout(){
+    localStorage.removeItem('token');
+    window.location.href="index.html"
 }
 
 GraphqlData();
