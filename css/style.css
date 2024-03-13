@@ -17,29 +17,30 @@ body {
     opacity: 80%;
     gap: 10%;
     width: 500px;
-    height: 50%;
+    height: 40%;
     border-style: groove;
     border-color: beige;
     border-radius: 5px;
-    background-color: black;
+    background-color: rgba(255, 255, 255, 0.377);
 }
 
 label {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     padding-right: 20px;
-    color: white;
+    color: rgb(0, 0, 0);
     opacity: 100%;
 }
 
 .input {
     margin-right: 10px;
     opacity: 100%;
+    color: black;
     /* Permet à l'input de prendre autant d'espace disponible que possible */
 }
 
 .conn {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: white;
+    color: rgb(0, 0, 0);
     opacity: 100%;
 }
 
@@ -49,4 +50,8 @@ label {
     padding: 8px;
     opacity: 100%;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.log{
+    font-weight: bolder;
 }

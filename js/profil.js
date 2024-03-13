@@ -59,13 +59,24 @@ query {
 
 const ConvertXp = (xp) => {
     if (xp < 1000) {
-        return (xp).toString() + "B"
+        return (Math.round(xp)).toString() + "B"
     } else if (xp < 1000000) {
         return (Math.round(xp * 0.001)).toString() + "KB"
     } else {
         return (Math.round(xp * 0.0001)).toString() + "MB"
     }
 }
+
+const ConvertXpBar = (xp) => {
+    if (xp < 1000) {
+        return xp.toFixed(1).toString() + "B"
+    } else if (xp < 1000000) {
+        return ((xp * 0.001).toFixed(1)).toString() + "KB"
+    } else {
+        return (xp * 0.0001).toFixed(1).toString() + "MB"
+    }
+}
+
 const changeToPourcent = (tab) => {
     // Calcul de la somme des deux nombres
     let total = 0;
@@ -118,10 +129,15 @@ const GraphqlData = () => {
                 }
             })
             let tab2 = changeToPourcent(amount)
+            let xps = [];
+            amount.forEach((e)=>{
+                console.log(e);
+                xps.push(ConvertXpBar(e))
+            })
             // Exemple de données
             const datas = [];
             NameProject.forEach((e, i) => {
-                datas.push({ label: e, value: tab2[i] })
+                datas.push({ label: e, value: tab2[i], xp : xps[i] })
             })
 
             // Appel de la fonction pour dessiner le diagramme en barres
@@ -235,7 +251,6 @@ function getRandomColor() {
     return color;
 }
 
-
 function drawBarChart(data, x, y, width, height) {
     // Calcul de la somme totale des valeurs
     const total = data.reduce((acc, item) => acc + item.value, 0);
@@ -271,7 +286,7 @@ function drawBarChart(data, x, y, width, height) {
         label.setAttribute("y", y + (height - barHeight) - 5);
         label.setAttribute("text-anchor", "middle");
         label.id="label"+item.label;
-        label.textContent = item.label + " " + Math.round(item.value) + "%";
+        label.textContent = item.label + " " + item.xp;
         label.style = "font-size:3px; display:none"
         document.getElementById("bar-chart").appendChild(label);
     });

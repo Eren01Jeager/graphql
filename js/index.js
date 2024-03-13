@@ -1,12 +1,3 @@
-// const credentials = {
-//     username: "mandaw",
-//     password: "Capoute@21"
-// };
-// const credentials = {
-//     username: "bsall",
-//     password: "Coumba98@"
-// };
-
 var endpointLogin = "https://learn.zone01dakar.sn/api/auth/signin";
 
 const credentials = {
