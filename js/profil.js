@@ -276,7 +276,6 @@ function drawBarChart(data, x, y, width, height) {
         document.getElementById("bar-chart").appendChild(label);
     });
 }
-
 function mouseover(id){
     let label = document.getElementById("label"+id)
     if (label != null){
