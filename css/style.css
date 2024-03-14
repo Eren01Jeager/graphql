@@ -11,13 +11,17 @@ body {
     width: 100%
 }
 
+.login {
+    margin-left: 6%;
+}
+
 .container {
     display: flex;
     flex-direction: column;
     opacity: 80%;
     gap: 10%;
     width: 500px;
-    height: 40%;
+    height: 50%;
     border-style: groove;
     border-color: beige;
     border-radius: 5px;
@@ -52,6 +56,6 @@ label {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.log{
+.log {
     font-weight: bolder;
 }
